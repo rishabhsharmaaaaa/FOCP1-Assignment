@@ -184,3 +184,358 @@ int main() {
     printf("\n");
    return 0;
 }
+------------------------------------------------------------------------------------------------------------
+// -----------------------ASSIGNMENT -2-------------------------
+Q9>
+#include <stdio.h>
+
+int main() {
+    int n, i, found = -1;
+
+   printf("Enter the number of scores: ");
+    scanf("%d", &n);
+
+printf("Enter %d scores:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &scores[i]);
+    }
+
+
+for(i = 0; i < n; i++) {
+        if(scores[i] == 99) {
+        found = i; 
+break;      
+     }
+ }
+
+   
+if(found != -1)
+printf("The first occurrence of 99 is at position %d.\n", found + 1);
+ else   
+  printf("Score 99 not found in the array.\n");
+   return 0;
+}
+
+------------------------------------------------------------------------------------------------------------
+Q10>
+#include <stdio.h>
+
+int main() {
+    int n, i, count = 0;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+int marks[n];
+    char names[n][50];
+
+ printf("\nEnter names and marks of each student:\n");
+    for (i = 0; i < n; i++) {
+        printf("Student %d name: ", i + 1);
+        scanf("%s", names[i]);
+        printf("Marks: ");
+        scanf("%d", &marks[i]);
+    }
+
+printf("\nStudents who scored 99:\n");
+    for (i = 0; i < n; i++) {
+        if (marks[i] == 99) {
+            printf("%s\n", names[i]);
+            count++;
+  }
+    }
+
+ printf("\nTotal number of students who scored 99: %d\n", count);
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q11>
+#include <stdio.h>
+
+int main()
+{
+    int scores[100], even_array[100], odd_array[100];
+    int n, i, even_count = 0, odd_count = 0;
+
+printf("Enter number of scores: ");
+    scanf("%d", &n);
+
+ printf("Enter %d scores:\n", n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &scores[i]);
+
+ for (i = 0; i < n; i++)
+    {
+if (scores[i] % 2 == 0)
+            even_array[even_count++] = scores[i];
+        else
+            odd_array[odd_count++] = scores[i];
+    }
+
+printf("\nEven scores: ");
+    for (i = 0; i < even_count; i++)
+        printf("%d ", even_array[i]);
+
+ printf("\nOdd scores: ");
+    for (i = 0; i < odd_count; i++)
+        printf("%d ", odd_array[i]);
+
+ return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q12>
+#include <stdio.h>
+
+int main()
+{
+    int scores[100], n;
+    int max, min;
+    int i;
+
+   
+   printf("Enter number of scores: ");
+    scanf("%d", &n);
+
+ 
+    printf("Enter %d scores:\n", n);
+    for (i = 0; i < n; i++)
+ {
+    scanf("%d", &scores[i]);
+   }
+
+ 
+ max = min = scores[0];
+
+
+   for (i = 1; i < n; i++)
+ {
+ if (scores[i] > max)
+            max = scores[i];
+        if (scores[i] < min)
+            min = scores[i];
+    }
+
+ printf("\nMaximum score = %d", max);
+    printf("\nMinimum score = %d\n", min);
+
+return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q13>
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+ int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+ int peakIndex = -1;
+
+   if (n == 1)
+        peakIndex = 0;
+else {
+        for (int i = 0; i < n; i++) {
+            if (i == 0 && arr[i] >= arr[i + 1]) {
+                peakIndex = i;
+                break;
+            }
+ else if (i == n - 1 && arr[i] >= arr[i - 1]) {
+                peakIndex = i;
+                break;
+            }
+ else if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
+                peakIndex = i;
+                break;
+            }
+        }
+    }
+
+ if (peakIndex != -1)
+        printf("Peak element is %d at index %d\n", arr[peakIndex], peakIndex);
+    else
+        printf("No peak element found.\n");
+
+ return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q14>
+#include <stdio.h>
+
+int main() {
+    int n, count = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+ int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+for (int i = 0; i < n; i++) {
+        int num = arr[i];
+        int isPrime = 1;
+
+if (num <= 1)
+            isPrime = 0;
+else {
+ for (int j = 2; j * j <= num; j++) {
+                if (num % j == 0) {
+                    isPrime = 0;
+                    break;
+                }
+            }
+        }
+
+ if (isPrime)
+            count++;
+    }
+
+printf("Number of prime numbers in the array: %d\n", count);
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q15>
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+int last = arr[n - 1];
+    for (int i = n - 1; i > 0; i--)
+        arr[i] = arr[i - 1];
+    arr[0] = last;
+
+ printf("Array after cyclic rotation: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+ printf("\n");
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q16>
+#include <stdio.h>
+
+int main() {
+    int n, pos, val;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+int arr[100];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+printf("Array before insertion:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+printf("Enter value to insert: ");
+    scanf("%d", &val);
+
+ printf("Enter position (1 for front, %d for end, or any between for middle): ", n + 1);
+    scanf("%d", &pos);
+
+if (pos < 1 || pos > n + 1) {
+        printf("Invalid position!\n");
+        return 0;
+    }
+
+for (int i = n; i >= pos; i--)
+        arr[i] = arr[i - 1];
+
+arr[pos - 1] = val;
+    n++;
+
+ printf("Array after insertion:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+ return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q17>
+#include <stdio.h>
+
+int main() {
+    int n, pos;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+ int arr[100];
+ printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+ printf("Array before deletion:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+ printf("Enter position to delete (1 for front, %d for end, or any between for middle): ", n);
+    scanf("%d", &pos);
+
+ if (pos < 1 || pos > n) {
+        printf("Invalid position!\n");
+        return 0;
+    }
+
+for (int i = pos - 1; i < n - 1; i++)
+        arr[i] = arr[i + 1];
+    n--;
+
+printf("Array after deletion:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+   printf("\n");
+
+ return 0;
+}
+------------------------------------------------------------------------------------------------------------
+Q18>
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+ int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+int found = 0;
+ printf("Duplicate elements: ");
+    for (int i = 0; i < n; i++) {
+        int count = 0;
+        for (int j = 0; j < n; j++) {
+            if (arr[i] == arr[j])
+                count++;
+        }
+ if (count > 1) {
+            int alreadyPrinted = 0;
+            for (int k = 0; k < i; k++) {
+                if (arr[k] == arr[i]) {
+                    alreadyPrinted = 1;
+                    break;
+                }
+            }
+ if (!alreadyPrinted) {
+                printf("%d ", arr[i]);
+                found = 1;
+ }
+
